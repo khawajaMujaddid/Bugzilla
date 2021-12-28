@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-inverse bg-dark">
+  <div class="container-fluid">
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav navbar-right">
+
+    <% if current_user.role == 'Manager' %>
+
+            <li class="nav-item">
+              <%= link_to 'Home', user_home_path, class: 'nav-link active' %>
+            </li>
+        
+            <li class="nav-item">
+              <%= link_to 'Create', new_bug_path,  class: 'nav-link active' %>
+            </li>
+        
+            <li class="nav-item">
+              <%= link_to 'View bugs', bugs_path , class: 'nav-link' %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to 'Users', show_users_path , class: 'nav-link' %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to 'logout', destroy_user_session_path, method: :delete, class: 'nav-link active' %>
+            </li>
+
+    <% elsif current_user.role == 'QA' %>
+
+            <li class="nav-item">
+              <%= link_to 'Home', user_home_path , class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Create', new_bug_path,  class: 'nav-link active' %>
+            </li>
+             <li class="nav-item">
+              <%= link_to 'bugs list', bugs_path , class: 'nav-link' %>
+            </li>
+             <li class="nav-item">
+              <%= link_to 'logout', destroy_user_session_path , method: :delete, class: 'nav-link' %>
+            </li>
+
+    <% elsif current_user.role == 'developer' %>
+
+             <li class="nav-item">
+              <%= link_to 'Home', user_home_path , class: 'nav-link' %>
+            </li>
+             <li class="nav-item">
+              <%= link_to 'Assgined bugs', bugs_path , class: 'nav-link' %>
+            </li>
+             <li class="nav-item">
+              <%= link_to 'logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            </li>
+
+          <% end %>
+
+        
+      </ul>
+    </div>
+  </div>
+</nav>

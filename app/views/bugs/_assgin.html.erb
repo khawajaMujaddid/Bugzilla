@@ -1,0 +1,11 @@
+
+<%= form_with(Model:@Bug, local: true, url: assgin_bug_path(bug), method: :put) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :email, "Assgin to", class: 'form-label'  %><br />
+    <%= f.select('user_id', @user.all.collect{ |p| [p.email, p.id]},  class: 'form-control' ) %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Assgin", class: 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+<% provide(:title,'Users')%>
+
+<h1> users </h1>
+<div class="d-flex flex-wrap">
+<% @users.each do |user| %>
+<div class="card" style="width: 22rem;">
+<%= image_tag("user.png", alt: "Kitten", class: 'card-img-top') %>
+ 
+  <div class="card-body">
+    <h5 class="card-title"><%= user.name %></h5>
+    <p class="card-text">Email: <%= user.email %> <br/>Role: <%= user.role %></p>
+    <%= link_to "Change Role", edit_user_path(user.id), class:'btn btn-primary' if user.role != 'Manager' %>
+    
+  </div>
+</div>
+
+<% end %>
+</div>

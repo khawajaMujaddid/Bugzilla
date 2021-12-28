@@ -1,0 +1,38 @@
+<% provide(:title,'Bugs')%>
+
+<h1>Bugs</h1>
+
+<div class='ex7 parent'>
+
+                         <% @bugs.each do |bug| %>     
+    <div class="bugs">
+        <div class="title">
+          <strong>Title:  </strong>    <%= bug.title %>
+        </div> <br/>
+        <div class="description">
+          <strong>Description:  </strong>   <p> <%= bug.description %> </p>
+        </div> <br/>
+        <span class="priority">
+          <strong>Priority:  </strong>    <%= bug.priority %>
+        </span> <br/>
+        <span class="priority">
+          <strong>Estimated days to Completion:  </strong>  <%= bug.ETC %> days
+        </span>
+            <br/><br/>
+            <strong> current status: </strong> <%= bug.status ? bug.status : 'none' %>&nbsp; &nbsp; <%= link_to "Change Status", edit_bug_url(bug.id), class: 'btn btn-secondary btn-sm' %><br/><br/>
+            <span class=''>
+                <strong> Currently Assgined to: </strong>
+                <%= bug.assginee ? bug.assginee.email : "not assgined" %>
+                <%= render partial: 'bugs/assgin', locals: {:bug => bug.id} if current_user.role == 'Manager' %>
+                <h4> Created by: <%= bug.user.email %> </h4>
+                     <br/>
+                    <% if current_user.role == 'QA' && bug.comments %>
+                        <strong>Comments: </strong> <%= bug.comments %>
+                    <% end %>
+                        <%= render partial: 'bugs/comments', locals: {:bug => bug.id} if current_user.role == 'developer' %>
+            </span>
+    </div>
+
+    <% end %>
+    </div>
+

@@ -1,0 +1,78 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+$light-grey: rgb(8, 8, 9);
+$white: #fff;
+
+// Place all the styles related to the bugs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.alert-alert {
+  @extend .alert-warning;
+}
+.alert-notice {
+  @extend .alert-success;
+}
+
+.bugs {
+  list-style: none;
+  padding: 0;
+  border-radius: 4rem;
+  background-color: #e8e8e8;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.title {
+  font-size: large;
+
+  strong {
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+}
+
+.description {
+  font-size: medium;
+  text-align: left;
+  background-color: lightblue;
+  border-radius: 2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  strong {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  p {
+    font-size: 1.7rem;
+    line-height: 1.7em;
+    margin-left: 4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.priority {
+  color: #993030;
+  margin-left: 60px;
+}
+
+#assgin-bar {
+  width: 50%;
+  margin-left: 25%;
+}
+
+.dropdown {
+  width: 50%;
+  height: 4rem;
+}
+
+.parent {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}

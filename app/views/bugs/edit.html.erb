@@ -1,0 +1,15 @@
+<% provide(:title,'Edit bugs')%>
+
+<h1>bug Status</h1>
+
+<%= form_with(Model:@Bug, local: true, url: bug_path, method: :PATCH) do |f| %>
+  <div class="form-group", style="width: 50%;">
+    <%= f.label :status, "Change Status to", class: 'form-label'  %><br />
+    <%= f.select :status, @status, class: 'dropdown' %>
+  </div>
+<br/> <br/>
+  <div class="actions">
+    <%= f.submit "Assgin", class: 'btn btn-primary' %>
+  </div>
+  
+<% end %>

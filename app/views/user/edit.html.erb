@@ -1,0 +1,20 @@
+<% provide(:title,'Edit User')%>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"><%= @user.name %></h1>
+    <p class="lead">Email: <%= @user.email %> <br/>Current Role: <%= @user.role %></p>
+  </div>
+
+  <%= form_with(Model:@user, local: true, url: update_user_path(@user.id), method: :PATCH) do |f| %>
+  <div class="dropdown">
+    <%= f.label :role, "Change Role to", class: 'form-label' %><br />
+    <%= f.select :role, ['Manager', 'QA','developer'] %>
+  </div>
+<br/> <br/>
+  <div class="actions">
+    <%= f.submit "Assgin", class: 'btn btn-primary' %>
+  </div>
+  
+<% end %>
+</div>

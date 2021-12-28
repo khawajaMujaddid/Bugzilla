@@ -1,0 +1,27 @@
+<% provide(:title,'Create Bug')%>
+
+<h2>Bug Creatation</h2>
+
+
+   <%= form_with(model: @bug, local: true) do |f| %>
+    
+
+    <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, placeholder: "bug title", class: 'form-control',  required:true %>
+    <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, placeholder: "Can contain a maximum of 100 characters", class: 'form-control', required:true %>
+    </div>
+    <div class="form-group">
+        <%= f.label :priority %>
+        <%= f.select :priority, ['high','medium','low'] %>
+    </div>
+    <div class="form-group">
+        <%= f.label :ETC, "Estimated days to completion" %>
+        <%= f.number_field :ETC, class: "form-control", required:true %>
+    </div>
+        <%= f.submit "Create", class: "btn btn-primary" %>
+
+    
+<% end %>

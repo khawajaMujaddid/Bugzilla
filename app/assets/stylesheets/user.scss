@@ -1,0 +1,14 @@
+// Place all the styles related to the user controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.card {
+  display: inline-flex;
+  background-color: #f3f2f2;
+  border-radius: 0.5rem;
+  margin: 20px 10px;
+}
+
+.card:hover {
+  background-color: #9e9e9e;
+}
